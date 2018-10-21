@@ -4,7 +4,7 @@ let GlblModule = (function () {
 
     let load_data = function () {
         let theData = {};
-        fetch("../dliyj/data.json").then(function (response) {
+        fetch("./data.json").then(function (response) {
             return response.json();
         }).then(function (myjson) {
             //console.log(JSON.stringify(myjson));
