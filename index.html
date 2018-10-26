@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- <base href="http://newup.consulting/dliyj/" /> -->
     <base href="/" />
     <meta charset="utf-8">
@@ -8,20 +9,57 @@
     <link rel="stylesheet" href="./site.css" />
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
     <title>Hello, world!</title>
-    
-  </head>
-  <body>
-    <div class="container">
-        <h1>Order Products</h1>
-    <div id="product_list" style="height:70vh;overflow:scroll;">
 
-    </div>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h5>Search Products</h5>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label for="productName">Product Name:</label>
+                        <input type="text" class="form-control" id="productName" placeholder="product name" />
+          
+                        <label for="priceMax">Max Price:</label>
+                        <input type="range" class="form-control-range" id="priceMax" value="0" />
+                        <span id="selectedMaxPrice" class="price">0</span>
+                    </div>
+
+                    <div class="form-group col-md-2 offset-md-1">
+                        <label for="categoryBikes">Bikes:</label>
+                        <input type="checkbox" class="form-control" id="categoryBikes" />
+
+                        <label for="categoryComponents">Components:</label>
+                        <input type="checkbox" class="form-control" id="categoryComponents" />
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="categoryClothing">Clothing:</label>
+                        <input type="checkbox" class="form-control" id="categoryClothing" />
+
+                        <label for="categoryAccessories">Accessories:</label>
+                        <input type="checkbox" class="form-control" id="categoryAccessories" />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <h1>Order Products</h1>
+        <div id="product_list" style="height:70vh;overflow:scroll;">
+
+        </div>
     </div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./site.js"></script>
     <script>
-            window.addEventListener('load', GlblModule.LoadData);
+        window.addEventListener('load', GlblModule.LoadData);
     </script>
-  </body>
+</body>
+
 </html>

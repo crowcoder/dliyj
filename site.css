@@ -1,3 +1,18 @@
+body{
+    padding-top: 1em;
+}
+
 .row_highlighted {
     background-color: rgba(86,61,124,.15);
+}
+
+.paddedrow{
+    padding-left: .7em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.price{
+    font-size: 1.3em;
+    color: blue
 }
