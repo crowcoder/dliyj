@@ -19,6 +19,13 @@
     ],
     "products": [
         {
+            "ProductID": 743,
+            "ProductName": "Smooth Ride",
+            "ListPrice": 149.60,
+            "ProductCategoryID": 1,
+            "ProductDescription": "Beach cruiser"
+        },
+        {
             "ProductID": 744,
             "ProductName": "HL Mountain Frame - Black, 44",
             "ListPrice": 1349.6000,

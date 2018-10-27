@@ -16,3 +16,16 @@ body{
     font-size: 1.3em;
     color: blue
 }
+
+.products{
+    height:50vh;
+    overflow:scroll;
+}
+
+.card{
+    margin-bottom: 2em;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button
+  }
