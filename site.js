@@ -53,6 +53,7 @@ let GlblModule = (function () {
             dePriceRange.value = 100;
             let event = new Event('change');
             dePriceRange.dispatchEvent(event);
+            CartModule.BuildCart();
         });
     };
 
@@ -143,6 +144,7 @@ let GlblModule = (function () {
             let add_to_cart_btn = document.createElement('button');
             add_to_cart_btn.className = "btn btn-primary";
             add_to_cart_btn.textContent = 'Add To ';
+            add_to_cart_btn.addEventListener('click', CartModule.AddToCart.bind(this, products[i]));
             let cart_icon_span = document.createElement('span');
             cart_icon_span.className = "fas fa-cart-plus";
             add_to_cart_btn.appendChild(cart_icon_span);
