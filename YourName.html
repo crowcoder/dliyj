@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <base href="http://newup.consulting/dliyj/" />
+    <!-- <base href="/" /> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/site.css" />
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <title>Whats your name?</title>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row paddedrow">
+            <div class="col-md-2">
+                <label for="FirstName"> First Name:
+                    <input type="text" id="FirstName" />
+                </label>
+            </div>
+        </div>
+        <div class="row paddedrow">
+            <div class="col-md-2">
+                <label for="MiddleName">Middle Name:
+                    <input type="text" id="MiddleName" />
+                </label>
+            </div>
+        </div>
+        <div class="row paddedrow">
+            <div class="col-md-2">
+                <Label for="LastName">Last Name:
+                    <input type="text" id="LastName" />
+                </Label>
+            </div>
+        </div>
+        <div class="row paddedrow">
+            <div class="col-md-2">
+                <button id="GoBtn" onclick="return Begin();"> GO </button>
+            </div>
+        </div>
+        <div class="row paddedrow">
+            <h2 id="full_name">Your Name Will Appear Here And You Will Be Amazed</h2>
+        </div>
+    </div>
+
+    <script>
+        function Begin() {
+            const full_name_element = document.querySelector("#full_name");
+            const result = GetName();
+            full_name_element.innerHTML = result;
+        }
+
+        function GetName(){
+            const first_name_element = document.querySelector("#FirstName");
+            const fname = first_name_element.value;
+            const result = GetMiddleName(fname);
+            return result;
+        }
+
+        function GetMiddleName(first_name){
+            const middle_name_element = document.querySelector("#MiddleName");
+            const name = `${first_name} ${middle_name_element.value}`;
+            const result = GetLastName(name);
+            return result;
+        }
+
+        function GetLastName(first_middle){
+            const last_name_element = document.querySelector("#LastName");
+            const name = `${first_middle} ${last_name_element.value}`;
+            return name;
+        }
+    </script>
+
+</body>
