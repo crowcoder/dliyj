@@ -93,10 +93,14 @@ let GlblModule = (function () {
 
     function buildProductList(products) {
         let product_list_div = document.querySelector('#product_list');
+        
+       // console.info("entering buildProductList()");
 
         product_list_div.innerHTML = null;
 
         for (let i = 0; i < products.length; i++) {
+
+           // console.warn(`Processing ${products[i].ProductName}`);
 
             let highlight = 'row_normal';
             if (i % 2 === 0) {
@@ -134,7 +138,7 @@ let GlblModule = (function () {
             product_image_div.className = 'col-md';
 
             let product_image = document.createElement('img');
-            product_image.onerror = img_error_handler;
+           // product_image.onerror = img_error_handler;
             product_image.src = `./images/product_${products[i].ProductID}.png`;
             product_image_div.appendChild(product_image);
 
