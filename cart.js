@@ -45,12 +45,12 @@ let CartModule = (function () {
 
        deCart.innerHTML = null;
 
-        //const cart_dom_elements = build_cart();
-        //cart_dom_elements.forEach(el => deCart.appendChild(el));
+        const cart_dom_elements = build_cart();
+        cart_dom_elements.forEach(el => deCart.appendChild(el));
 
         if (cart) {
 
-           cart.forEach(element => {
+          /*  cart.forEach(element => {
 
                let cart_item_div = document.createElement('div');
                cart_item_div.className = "card";
@@ -78,7 +78,7 @@ let CartModule = (function () {
                cart_item_div.appendChild(cart_item_delete_btn);
 
                deCart.appendChild(cart_item_div);
-           });
+           }); */
        } 
     }
 

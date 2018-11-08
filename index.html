@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <base href="http://newup.consulting/dliyj/" />
-    <!-- <base href="/" /> -->
+    <!-- <base href="http://newup.consulting/dliyj/" /> -->
+    <base href="/" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./css/site.css" />
@@ -14,63 +14,90 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-title">
-                    <h5>Search Products</h5>
+    <span style="position:fixed;top:0;left:0"><img src="./images/hamburger.png" height="50px" width="50px" onclick="openNav()" />
+    </span>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Rubber Duck</a>
+        <a href="#">Cart Build</a>
+        <a href="#">?</a>
+        <a href="./YourName.html">Your Name</a>
+    </div>
+
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <div id="main">
+
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5>Search Products</h5>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-7">
+                            <label for="productName">Product Name:</label>
+                            <input type="search" class="form-control" id="productName" placeholder="product name" />
+
+                            <label for="priceMax">Max Price:</label>
+                            <input type="range" class="form-control-range" id="priceMax" value="0" />
+                            <span id="selectedMaxPrice" class="price">0</span>
+                        </div>
+
+                        <div class="form-group col-md-2 offset-md-1">
+                            <label for="categoryBikes">Bikes:</label>
+                            <input type="checkbox" class="form-control" checked id="categoryBikes" />
+
+                            <label for="categoryComponents">Components:</label>
+                            <input type="checkbox" class="form-control" checked id="categoryComponents" />
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="categoryClothing">Clothing:</label>
+                            <input type="checkbox" class="form-control" checked id="categoryClothing" />
+
+                            <label for="categoryAccessories">Accessories:</label>
+                            <input type="checkbox" class="form-control" checked id="categoryAccessories" />
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-7">
-                        <label for="productName">Product Name:</label>
-                        <input type="search" class="form-control" id="productName" placeholder="product name" />
+            </div>
 
-                        <label for="priceMax">Max Price:</label>
-                        <input type="range" class="form-control-range" id="priceMax" value="0" />
-                        <span id="selectedMaxPrice" class="price">0</span>
-                    </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Order Products</h3>
+                </div>
+                <div class="col-md">
+                    <h3>Your Cart</h3>
+                </div>
+            </div>
 
-                    <div class="form-group col-md-2 offset-md-1">
-                        <label for="categoryBikes">Bikes:</label>
-                        <input type="checkbox" class="form-control" checked id="categoryBikes" />
-
-                        <label for="categoryComponents">Components:</label>
-                        <input type="checkbox" class="form-control" checked id="categoryComponents" />
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="categoryClothing">Clothing:</label>
-                        <input type="checkbox" class="form-control" checked id="categoryClothing" />
-
-                        <label for="categoryAccessories">Accessories:</label>
-                        <input type="checkbox" class="form-control" checked id="categoryAccessories" />
-                    </div>
+            <div class="row">
+                <div id="product_list" class="products col-md-8">
 
                 </div>
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8"><h3>Order Products</h3></div>
-            <div class="col-md"><h3>Your Cart</h3></div>
-        </div>
-        
-        <div class="row">
-            <div id="product_list" class="products col-md-8">
-
-            </div>
-            <div id="cart" class="products col-md">
-                the cart
+                <div id="cart" class="products col-md">
+                    the cart
+                </div>
             </div>
         </div>
     </div>
-
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./cart.js"></script>
-    <script src="./site.js"></script>  
+    <script src="./site.js"></script>
     <script>
         window.addEventListener('load', GlblModule.LoadData);
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     </script>
 </body>
 

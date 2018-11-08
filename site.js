@@ -62,6 +62,7 @@ let GlblModule = (function () {
         let the_products = all_data.products;
 
         for (let i = 0; i < the_products.length; i++) {
+           
             if (the_products[i].ListPrice > higest_price) {
                 higest_price = the_products[i].ListPrice;
             }
@@ -99,7 +100,7 @@ let GlblModule = (function () {
         product_list_div.innerHTML = null;
 
         for (let i = 0; i < products.length; i++) {
-
+           // if(i > 10){throw i;}
            // console.warn(`Processing ${products[i].ProductName}`);
 
             let highlight = 'row_normal';
@@ -138,7 +139,7 @@ let GlblModule = (function () {
             product_image_div.className = 'col-md';
 
             let product_image = document.createElement('img');
-           // product_image.onerror = img_error_handler;
+            product_image.onerror = img_error_handler;
             product_image.src = `./images/product_${products[i].ProductID}.png`;
             product_image_div.appendChild(product_image);
 
