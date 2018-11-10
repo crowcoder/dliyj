@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <!-- <base href="http://newup.consulting/dliyj/" /> -->
-    <base href="/" />
+    <base href="http://newup.consulting/dliyj/" />
+    <!-- <base href="/" /> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./css/site.css" />
@@ -19,9 +19,10 @@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Rubber Duck</a>
-        <a href="#">Cart Build</a>
-        <a href="#">?</a>
+        <a href="./index.html">Start</a>
+        <a href="./index.html?ver=cart-add-build-separate">Cart Better</a>
+        <a href="./index.html?ver=cart-fixed">Cart Fixed</a>
+        <a href="./index.html?ver=logging">Logging</a>
         <a href="./YourName.html">Your Name</a>
     </div>
 
@@ -85,10 +86,35 @@
     </div>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./cart.js"></script>
-    <script src="./site.js"></script>
+
+    <script id="cart_script"></script>
+    <script id="site_script" onload="GlblModule.LoadData();"></script>
+
     <script>
-        window.addEventListener('load', GlblModule.LoadData);
+        window.addEventListener('load', function () {
+
+            localStorage.removeItem('Cart');
+
+            let ulrparams = new URLSearchParams(window.location.search);
+            const version = ulrparams.get('ver');
+            let sitejs = document.querySelector("#site_script");
+            let cartjs = document.querySelector("#cart_script");
+
+            switch (version) {
+                case 'cart-add-build-separate':
+                    cartjs.src = './cartbetter.js';
+                    sitejs.src = './site.js';
+                    break;
+                case 'cart-fixed':
+                    cartjs.src = './cartfixed.js';
+                    sitejs.src = './site.js';
+                    break;
+                default:
+                    cartjs.src = './cart.js';
+                    sitejs.src = './site.js';
+                    break;
+            }
+        });
 
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";

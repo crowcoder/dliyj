@@ -43,6 +43,21 @@ let CartModule = (function () {
 
         deCart.innerHTML = null;
 
+        const cart_dom_elements = build_cart();
+        cart_dom_elements.forEach(el => deCart.appendChild(el));
+    }
+
+    function remove(product) {
+        alert(product.ProductName);
+    }
+
+    let build_cart = function () {
+
+        const cart = JSON.parse(localStorage.getItem('Cart'));
+        //const cart = [ { "ProductID": 744, "ProductName": "Tartinka", "Quantity":1, "ListPrice": 88.55, "SubTotal": 88.55 }, { "ProductID": 910, "ProductName": "Rubber Baby Buggy Bumper", "Quantity":1, "ListPrice": 19.99, "SubTotal": 19.99 } ]
+
+        let cart_items = [];
+
         if (cart) {
 
             cart.forEach(element => {
@@ -58,6 +73,11 @@ let CartModule = (function () {
                 let details = document.createTextNode(element.ProductName);
                 cart_item_details_div.appendChild(details);
 
+                let quantity_price_p = document.createElement('p');
+                let qp = document.createTextNode(`Quantity: ${element.Quantity}, Unit Price: ${element.ListPrice}, Subtotal: ${element.Quantity * element.ListPrice}`);
+                quantity_price_p.appendChild(qp);
+                cart_item_details_div.appendChild(quantity_price_p);
+
                 cart_item_body.appendChild(cart_item_details_div);
 
                 let cart_item_delete_btn = document.createElement('button');
@@ -72,17 +92,17 @@ let CartModule = (function () {
                 cart_item_div.appendChild(cart_item_body);
                 cart_item_div.appendChild(cart_item_delete_btn);
 
-                deCart.appendChild(cart_item_div);
+                //deCart.appendChild(cart_item_div);
+                cart_items.push(cart_item_div);
             });
         }
+        return cart_items;
     }
 
-    function remove(product) {
-        alert(product.ProductName);
-    }
 
     return {
-        AddToCart: add_cart_item
+        AddToCart: add_cart_item,
+        BuildCart: build_cart
     };
 
 })();

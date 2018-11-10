@@ -1,10 +1,10 @@
-let GlblModule = (function () {
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+});
 
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-    })
+let GlblModule = (function () {
 
     let all_data = {};
     let higest_price = 0;
@@ -53,7 +53,6 @@ let GlblModule = (function () {
             dePriceRange.value = 100;
             let event = new Event('change');
             dePriceRange.dispatchEvent(event);
-            CartModule.BuildCart();
         });
     };
 
