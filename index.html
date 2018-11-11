@@ -3,7 +3,7 @@
 
 <head>
     <base href="http://newup.consulting/dliyj/" />
-    <!-- <base href="/" /> -->
+<!--     <base href="/" /> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./css/site.css" />
@@ -32,9 +32,9 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-title">
+                    <!--  <div class="card-title">  
                         <h5>Search Products</h5>
-                    </div>
+                    </div>-->
                     <div class="form-row">
                         <div class="form-group col-md-7">
                             <label for="productName">Product Name:</label>
@@ -109,6 +109,10 @@
                     cartjs.src = './cartfixed.js';
                     sitejs.src = './site.js';
                     break;
+                case 'logging':
+                    cartjs.src = './cartfixed.js';
+                    sitejs.src = './sitelogging.js';
+                    break;
                 default:
                     cartjs.src = './cart.js';
                     sitejs.src = './site.js';
@@ -124,6 +128,8 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
+   
     </script>
 </body>
 
